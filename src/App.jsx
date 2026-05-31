@@ -4,8 +4,26 @@ import { categories } from "./menu";
 export default function App() {
   const [cart, setCart] = useState([])
   const addToCart = (item) => {
-    setCart([...cart, item])
+    const existing = cart.find((i) => i.name === item.name)
+  
+    if (existing) {
+      setCart(
+        cart.map((i) =>
+          i.name === item.name
+            ? { ...i, qty: i.qty + 1 }
+            : i
+        )
+      )
+    } else {
+      setCart([...cart, { ...item, qty: 1 }])
+    }
   }
+  const removeFromCart = (name) => {
+    setCart(cart.filter((item) => item.name !== name))
+  }
+  const total = cart.reduce((sum, item) => {
+    return sum + Number(item.price.replace("L.", "")) * item.qty
+  }, 0)
   const [selected, setSelected] = useState("Entradas");
 
   return (
@@ -132,11 +150,16 @@ export default function App() {
       <button
   onClick={() => {
     const message = cart
-      .map((item) => `- ${item.name} ${item.price}`)
+    .map(
+      (item) =>
+        `${item.qty}x ${item.name} - L.${
+          Number(item.price.replace("L.", "")) * item.qty
+        }`
+    )
       .join("\n")
 
     const url = `https://wa.me/50494340468?text=${encodeURIComponent(
-      "Hola, quiero ordenar:\n\n" + message
+      `Hola, quiero ordenar:\n\n${message}\n\nTotal: L.${total}`
     )}`
 
     window.open(url)
@@ -154,7 +177,43 @@ export default function App() {
     font-black
     text-lg
   "
->
+><div className="fixed bottom-24 right-5 bg-white p-4 rounded-2xl shadow-2xl w-72">
+
+<h2 className="font-black text-lg mb-3">
+  Cart
+</h2>
+
+{cart.map((item) => (
+  <div
+    key={item.name}
+    className="flex justify-between items-center mb-2"
+  >
+    <div>
+      <p className="font-bold">
+        {item.name}
+      </p>
+
+      <p>
+        {item.qty} x {item.price}
+      </p>
+    </div>
+
+    <button
+      onClick={() => removeFromCart(item.name)}
+      className="text-red-500 font-bold"
+    >
+      X
+    </button>
+  </div>
+))}
+
+<hr className="my-3" />
+
+<p className="font-black text-lg">
+  Total: L.{total}
+</p>
+
+</div>
   WhatsApp Order
 </button>
 
