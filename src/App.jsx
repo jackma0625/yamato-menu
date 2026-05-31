@@ -185,7 +185,7 @@ export default function App() {
   "
 >  WhatsApp Order
 </button>
-  <div className="fixed bottom-32 right-5 bg-white p-4 rounded-2xl shadow-2xl w-72 text-black z-50 max-h-64 overflow-y-auto">
+  <div className="fixed bottom-24 right-5 bg-white p-4 rounded-2xl shadow-2xl w-56 text-black z-50 max-h-48 overflow-y-auto">
 
 <h2 className="font-black text-lg mb-3">
   Cart
