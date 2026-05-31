@@ -22,7 +22,12 @@ export default function App() {
     setCart(cart.filter((item) => item.name !== name))
   }
   const total = cart.reduce((sum, item) => {
-    return sum + Number(item.price.replace("L.", "")) * item.qty
+
+    const price =
+      parseInt(item.price.replace("L.", "").split("/")[0])
+  
+    return sum + price * item.qty
+  
   }, 0)
   const [selected, setSelected] = useState("Entradas");
 
@@ -166,7 +171,7 @@ export default function App() {
   }}
   className="
     fixed
-    bottom-5
+    bottom-2
     right-5
     bg-green-500
     text-white
@@ -177,7 +182,7 @@ export default function App() {
     font-black
     text-lg
   "
-><div className="fixed bottom-24 right-5 bg-white p-4 rounded-2xl shadow-2xl w-72 text-black">
+><div className="fixed bottom-32 right-5 bg-white p-4 rounded-2xl shadow-2xl w-72 text-black">
 
 <h2 className="font-black text-lg mb-3">
   Cart
