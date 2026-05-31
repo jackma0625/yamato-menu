@@ -183,7 +183,7 @@ export default function App() {
     font-bold
   "
 >
-  Cart ({cart.length})
+  Mi Orden ({cart.length})
 </button>
 
       <button
