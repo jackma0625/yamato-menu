@@ -19,7 +19,6 @@ return ( <div className="bg-[#f5f5f5] min-h-screen">
     <div className="flex gap-3 overflow-x-auto mt-5 pb-2">
 
       {categories.map((cat) => (
-
         <button
           key={cat.category}
           className="
@@ -34,7 +33,6 @@ return ( <div className="bg-[#f5f5f5] min-h-screen">
         >
           {cat.category}
         </button>
-
       ))}
 
     </div>
