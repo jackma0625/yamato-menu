@@ -183,7 +183,9 @@ export default function App() {
     font-black
     text-lg
   "
-><div className="fixed bottom-32 right-5 bg-white p-4 rounded-2xl shadow-2xl w-72 text-black z-50 max-h-64 overflow-y-auto">
+>  WhatsApp Order
+</button>
+  <div className="fixed bottom-32 right-5 bg-white p-4 rounded-2xl shadow-2xl w-72 text-black z-50 max-h-64 overflow-y-auto">
 
 <h2 className="font-black text-lg mb-3">
   Cart
@@ -220,8 +222,7 @@ export default function App() {
 </p>
 
 </div>
-  WhatsApp Order
-</button>
+
 
     </div>
   );
