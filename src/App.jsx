@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { categories } from "./menu";
 
 export default function App() {
   const [cart, setCart] = useState([])
   const [showCart, setShowCart] = useState(false)
+  useEffect(() => {
+
+    const handleScroll = () => {
+      setShowCart(false)
+    }
+  
+    window.addEventListener("scroll", handleScroll)
+  
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  
+  }, [])
+
   const addToCart = (item) => {
     const existing = cart.find((i) => i.name === item.name)
   
