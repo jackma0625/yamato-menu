@@ -1,9 +1,10 @@
 import { categories } from "./menu";
 
 export default function App() {
-return ( <div className="bg-[#f5f5f5] min-h-screen">
+return (
 
-```
+
+
   {/* HEADER */}
   <div className="bg-black text-white p-6 sticky top-0 z-50 shadow-xl">
 
@@ -108,7 +109,7 @@ return ( <div className="bg-[#f5f5f5] min-h-screen">
 
   </div>
 
-  {/* WHATSAPP BUTTON */}
+  {/* WHATSAPP */}
   <a
     href="https://wa.me/50494340468"
     target="_blank"
@@ -130,7 +131,6 @@ return ( <div className="bg-[#f5f5f5] min-h-screen">
   </a>
 
 </div>
-```
 
 );
 }
