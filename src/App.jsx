@@ -34,7 +34,29 @@ export default function App() {
     }
   }
   const removeFromCart = (name) => {
-    setCart(cart.filter((item) => item.name !== name))
+
+    setCart(
+      cart
+        .map((item) => {
+  
+          if (item.name === name) {
+  
+            if (item.qty > 1) {
+              return {
+                ...item,
+                qty: item.qty - 1
+              }
+            }
+  
+            return null
+          }
+  
+          return item
+  
+        })
+        .filter(Boolean)
+    )
+  
   }
   const total = cart.reduce((sum, item) => {
 
