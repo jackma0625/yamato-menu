@@ -1,55 +1,133 @@
 import menu from "./menu";
+import { useState } from "react";
+
 export default function App() {
-  
+  const categories = [...new Set(menu.map(item => item.category))];
+
+  const [selected, setSelected] = useState("Entradas");
+
+  const filtered = menu.filter(
+    item => item.category === selected
+  );
+
   return (
-    <div className="p-4 flex flex-col gap-4">
-  {menu.map((item, index) => (
-    <div
-      key={index}
-      className="bg-white rounded-3xl shadow-xl overflow-hidden"
-    >
-      <img
-        src={item.image}
-        alt={item.name}
-        className="w-full h-56 object-cover"
-      />
+    <div className="bg-[#f5f5f5] min-h-screen pb-32">
 
-      <div className="p-4">
-        <p className="text-sm text-gray-500">
-          {item.category}
+      {/* HEADER */}
+      <div className="bg-black text-white p-6 sticky top-0 z-50 shadow-xl">
+
+        <h1 className="text-4xl font-black">
+          SUSHI YAMATO
+        </h1>
+
+        <p className="text-gray-400 mt-1">
+          Japanese Fusion
         </p>
 
-        <h2 className="text-2xl font-bold">
-          {item.name}
-        </h2>
+        {/* CATEGORY */}
+        <div className="flex gap-3 overflow-x-auto mt-5 pb-1">
 
-        <p className="text-xl text-red-500 font-bold mt-2">
-          {item.price}
-        </p>
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => setSelected(category)}
+              className={`
+                px-5
+                py-2
+                rounded-full
+                whitespace-nowrap
+                font-bold
+                transition
+                ${
+                  selected === category
+                    ? "bg-red-500 text-white"
+                    : "bg-white text-black"
+                }
+              `}
+            >
+              {category}
+            </button>
+          ))}
 
-        <a
-          href={`https://wa.me/50494340468?text=Hola quiero pedir ${item.name}`}
-          target="_blank"
-          className="
-          mt-4
-          w-full
+        </div>
+      </div>
+
+      {/* PRODUCTS */}
+      <div className="p-4 grid grid-cols-2 gap-4">
+
+        {filtered.map((item, index) => (
+
+          <div
+            key={index}
+            className="
+              bg-white
+              rounded-3xl
+              overflow-hidden
+              shadow-lg
+            "
+          >
+
+            <img
+              src={item.image}
+              alt={item.name}
+              className="
+                w-full
+                h-40
+                object-cover
+              "
+            />
+
+            <div className="p-4">
+
+              <p className="text-xs text-gray-400">
+                {item.category}
+              </p>
+
+              <h2 className="font-black text-lg leading-tight mt-1">
+                {item.name}
+              </h2>
+
+              <p className="text-sm text-gray-500 mt-2 min-h-[40px]">
+                {item.desc}
+              </p>
+
+              <div className="mt-4 flex items-center justify-between">
+
+                <p className="text-red-500 font-black text-xl">
+                  {item.price}
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        ))}
+
+      </div>
+
+      {/* WHATSAPP BUTTON */}
+      <a
+        href="https://wa.me/50494340468"
+        target="_blank"
+        className="
+          fixed
+          bottom-5
+          right-5
           bg-green-500
           text-white
+          px-6
           py-4
-          rounded-2xl
-          text-xl
-          font-bold
-          active:scale-95
-          transition
-          block
-          text-center
-          "
-        >
-          Pedir por WhatsApp
-        </a>
-      </div>
+          rounded-full
+          shadow-2xl
+          font-black
+          text-lg
+        "
+      >
+        WhatsApp
+      </a>
+
     </div>
-  ))}
-</div>
   );
 }
