@@ -3,6 +3,7 @@ import { categories } from "./menu";
 
 export default function App() {
   const [cart, setCart] = useState([])
+  const [showCart, setShowCart] = useState(false)
   const addToCart = (item) => {
     const existing = cart.find((i) => i.name === item.name)
   
@@ -153,7 +154,26 @@ export default function App() {
       </div>
 
       <button
-  onClick={() => {
+  onClick={() => setShowCart(!showCart)}
+  className="
+    fixed
+    bottom-20
+    right-5
+    z-40
+    bg-black
+    text-white
+    px-5
+    py-3
+    rounded-full
+    shadow-xl
+    font-bold
+  "
+>
+  Cart ({cart.length})
+</button>
+
+      <button
+onClick={() => {
     const message = cart
     .map(
       (item) =>
@@ -185,7 +205,20 @@ export default function App() {
   "
 >  WhatsApp Order
 </button>
-  <div className="fixed bottom-24 right-5 bg-white p-4 rounded-2xl shadow-2xl w-56 text-black z-50 max-h-48 overflow-y-auto">
+{showCart && (
+  <div className="
+  fixed 
+  bottom-24 
+  right-5 
+  bg-white 
+  p-4 
+  rounded-2xl 
+  shadow-2xl 
+  w-56 
+  text-black 
+  z-50 
+  max-h-48 
+  overflow-y-auto">
 
 <h2 className="font-black text-lg mb-3">
   Cart
@@ -222,7 +255,7 @@ export default function App() {
 </p>
 
 </div>
-
+)}
 
     </div>
   );
