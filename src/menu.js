@@ -9,63 +9,63 @@ export const categories = [
           name: "Edamame",
           desc: "Al vapor o asado",
           price: "L.89 / 119",
-          image: "/images/yamato.jpg",
+          image: "/images/edamame-asado.png",
         },
   
         {
           name: "Miso Soup",
           desc: "Sopa japonesa con tofu y algas",
           price: "L.119",
-          image: "/images/yamato.jpg",
+          image: "/images/miso-soup.png",
         },
   
         {
           name: "Ensalada de Wakame",
           desc: "Alga marina con sésamo",
           price: "L.99",
-          image: "/images/yamato.jpg",
+          image: "/images/ensalada-wakame.png",
         },
   
         {
           name: "Gyoza",
           desc: "Pollo o cerdo · al vapor o frito",
           price: "L.169",
-          image: "/images/yamato.jpg",
+          image: "/images/gyoza.png",
         },
   
         {
           name: "Bao Asiática",
           desc: "Pan al vapor relleno de cerdo BBQ",
           price: "L.159",
-          image: "/images/yamato.jpg",
+          image: "/images/bao.png",
         },
   
         {
           name: "Spring Roll",
           desc: "Crujiente relleno de vegetales",
           price: "L.179",
-          image: "/images/yamato.jpg",
+          image: "/images/spring-roll.png",
         },
   
         {
           name: "Brocheta de Camaron",
           desc: "2 piezas L.109 · 5 piezas L.229",
           price: "",
-          image: "/images/yamato.jpg",
+          image: "/images/brocheta-camaron.png",
         },
   
         {
           name: "Tempura Mixto",
           desc: "Verduras y 3 piezas de camarones",
           price: "L.249",
-          image: "/images/yamato.jpg",
+          image: "/images/tempura.png",
         },
   
         {
           name: "Ika Sansai",
           desc: "Ensalada de calamar",
           price: "L.189",
-          image: "/images/yamato.jpg",
+          image: "/images/ika-sansai.png",
         },
   
       ],
