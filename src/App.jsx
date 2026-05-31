@@ -81,7 +81,7 @@ export default function App() {
                       alt={item.name}
                       className="
                         w-full
-                        h-48
+                        aspect-square
                         object-cover
                         rounded-xl
                       "
