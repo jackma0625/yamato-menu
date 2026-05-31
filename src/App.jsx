@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { categories } from "./menu";
 
 export default function App() {
+
+  const [selected, setSelected] = useState("Entradas");
+
   return (
     <div className="bg-[#f5f5f5] min-h-screen">
 
@@ -19,20 +23,26 @@ export default function App() {
         <div className="flex gap-3 overflow-x-auto mt-5 pb-2">
 
           {categories.map((cat) => (
+
             <button
               key={cat.category}
-              className="
-                bg-white
-                text-black
+              onClick={() => setSelected(cat.category)}
+              className={`
                 px-6
                 py-3
                 rounded-full
                 font-bold
                 whitespace-nowrap
-              "
+                ${
+                  selected === cat.category
+                    ? "bg-red-500 text-white"
+                    : "bg-white text-black"
+                }
+              `}
             >
               {cat.category}
             </button>
+
           ))}
 
         </div>
@@ -42,65 +52,67 @@ export default function App() {
       {/* PRODUCTS */}
       <div className="p-4">
 
-        {categories.map((cat) => (
+        {categories
+          .filter((cat) => cat.category === selected)
+          .map((cat) => (
 
-          <div key={cat.category} className="mb-10">
+            <div key={cat.category} className="mb-10">
 
-            <h2 className="text-3xl font-black mb-5">
-              {cat.category}
-            </h2>
+              <h2 className="text-3xl font-black mb-5">
+                {cat.category}
+              </h2>
 
-            <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
 
-              {cat.items.map((item, index) => (
+                {cat.items.map((item, index) => (
 
-                <div
-                  key={index}
-                  className="
-                    bg-white
-                    rounded-3xl
-                    overflow-hidden
-                    shadow-lg
-                  "
-                >
-
-                  <img
-                    src={item.image}
-                    alt={item.name}
+                  <div
+                    key={index}
                     className="
-                      w-full
-                      h-40
-                      object-cover
+                      bg-white
+                      rounded-3xl
+                      overflow-hidden
+                      shadow-lg
                     "
-                  />
+                  >
 
-                  <div className="p-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="
+                        w-full
+                        h-40
+                        object-cover
+                      "
+                    />
 
-                    <h2 className="font-black text-lg leading-tight">
-                      {item.name}
-                    </h2>
+                    <div className="p-4">
 
-                    <p className="text-sm text-gray-500 mt-2 min-h-[40px]">
-                      {item.desc}
-                    </p>
+                      <h2 className="font-black text-lg leading-tight">
+                        {item.name}
+                      </h2>
 
-                    <div className="mt-4">
-
-                      <p className="text-red-500 font-black text-xl">
-                        {item.price}
+                      <p className="text-sm text-gray-500 mt-2 min-h-[40px]">
+                        {item.desc}
                       </p>
+
+                      <div className="mt-4">
+
+                        <p className="text-red-500 font-black text-xl">
+                          {item.price}
+                        </p>
+
+                      </div>
 
                     </div>
 
                   </div>
 
-                </div>
+                ))}
 
-              ))}
+              </div>
 
             </div>
-
-          </div>
 
         ))}
 
