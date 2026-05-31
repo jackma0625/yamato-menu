@@ -16,7 +16,7 @@ export default function App() {
         </h1>
 
         <p className="text-gray-400 mt-1">
-          Japanese Fusion
+          La Entrada de Copan
         </p>
 
         {/* CATEGORY */}
