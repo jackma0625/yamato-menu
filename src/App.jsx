@@ -1,4 +1,4 @@
-import menu from "./menu";
+import { categories } from "./menu";
 import { useState } from "react";
 
 export default function App() {
@@ -25,31 +25,31 @@ export default function App() {
         </p>
 
         {/* CATEGORY */}
-        <div className="flex gap-3 overflow-x-auto mt-5 pb-1">
+        <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+  <button className="bg-red-500 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+    Entradas
+  </button>
 
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => setSelected(category)}
-              className={`
-                px-5
-                py-2
-                rounded-full
-                whitespace-nowrap
-                font-bold
-                transition
-                ${
-                  selected === category
-                    ? "bg-red-500 text-white"
-                    : "bg-white text-black"
-                }
-              `}
-            >
-              {category}
-            </button>
-          ))}
+  <button className="bg-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+    Rollos
+  </button>
 
-        </div>
+  <button className="bg-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+    Ramen
+  </button>
+
+  <button className="bg-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+    Bowls
+  </button>
+
+  <button className="bg-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+    Bebidas
+  </button>
+
+  <button className="bg-white px-6 py-3 rounded-full font-bold whitespace-nowrap">
+    Promos
+  </button>
+</div>
       </div>
 
       {/* PRODUCTS */}
