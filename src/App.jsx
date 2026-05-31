@@ -177,7 +177,7 @@ export default function App() {
     font-black
     text-lg
   "
-><div className="fixed bottom-24 right-5 bg-white p-4 rounded-2xl shadow-2xl w-72">
+><div className="fixed bottom-24 right-5 bg-white p-4 rounded-2xl shadow-2xl w-72 text-black">
 
 <h2 className="font-black text-lg mb-3">
   Cart
