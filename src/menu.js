@@ -101,7 +101,7 @@ export const categories = [
             name: "Salmon Lovers Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.339",
-            image: "/images/salmon-lovers.jpg",
+            image: "/images/salmon-lovers.png",
           },
   
           {
