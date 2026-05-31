@@ -1,10 +1,9 @@
 import { categories } from "./menu";
 
 export default function App() {
-return (
+return ( <div className="bg-[#f5f5f5] min-h-screen">
 
-
-
+```
   {/* HEADER */}
   <div className="bg-black text-white p-6 sticky top-0 z-50 shadow-xl">
 
@@ -131,6 +130,7 @@ return (
   </a>
 
 </div>
+```
 
 );
 }
