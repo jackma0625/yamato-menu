@@ -2,7 +2,10 @@ import { useState } from "react";
 import { categories } from "./menu";
 
 export default function App() {
-
+  const [cart, setCart] = useState([])
+  const addToCart = (item) => {
+    setCart([...cart, item])
+  }
   const [selected, setSelected] = useState("Entradas");
 
   return (
@@ -102,6 +105,13 @@ export default function App() {
                         <p className="text-red-500 font-black text-xl">
                           {item.price}
                         </p>
+                        <button
+                           onClick={() => addToCart(item)}
+                           className="bg-black text-white px-4 py-2 rounded-xl"
+                          >
+                           Agregar
+                        </button>
+                        
 
                       </div>
 
@@ -119,26 +129,34 @@ export default function App() {
 
       </div>
 
-      {/* WHATSAPP */}
-      <a
-        href="https://wa.me/50494340468"
-        target="_blank"
-        className="
-          fixed
-          bottom-5
-          right-5
-          bg-green-500
-          text-white
-          px-6
-          py-4
-          rounded-full
-          shadow-2xl
-          font-black
-          text-lg
-        "
-      >
-        WhatsApp
-      </a>
+      <button
+  onClick={() => {
+    const message = cart
+      .map((item) => `- ${item.name} ${item.price}`)
+      .join("\n")
+
+    const url = `https://wa.me/50494340468?text=${encodeURIComponent(
+      "Hola, quiero ordenar:\n\n" + message
+    )}`
+
+    window.open(url)
+  }}
+  className="
+    fixed
+    bottom-5
+    right-5
+    bg-green-500
+    text-white
+    px-6
+    py-4
+    rounded-full
+    shadow-2xl
+    font-black
+    text-lg
+  "
+>
+  WhatsApp Order
+</button>
 
     </div>
   );
