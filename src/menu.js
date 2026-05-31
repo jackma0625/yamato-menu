@@ -45,12 +45,7 @@ export const categories = [
         image: "/images/yamato.jpg",
       },
     
-      {
-        name: "Brocheta de Camaron",
-        desc: "2 piezas L.109 · 5 piezas L.229",
-        price: "",
-        image: "/images/yamato.jpg",
-      },
+
     
       {
         name: "Tempura Mixto",
