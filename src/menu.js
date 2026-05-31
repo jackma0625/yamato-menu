@@ -66,7 +66,7 @@ export const categories = [
         image: "/images/yamato.jpg",
       },
     ],
-    ```
+    
     
     },
     
