@@ -284,14 +284,14 @@ export const categories = [
           name: "Teriyaki Chicken Bowl",
           desc: "Pollo teriyaki estilo japones",
           price: "L.259",
-          image: "/images/yamato.jpg",
+          image: "/images/teriyaki-chicken.png",
         },
   
         {
           name: "Sweet Chili Chicken Bowl",
           desc: "Pollo sweet chili estilo japones",
           price: "L.249",
-          image: "/images/yamato.jpg",
+          image: "/images/chili-chicken.png",
         },
   
       ],
