@@ -304,7 +304,7 @@ onClick={() => {
   overflow-y-auto">
 
 <h2 className="font-black text-lg mb-3">
-  Cart
+Mi Orden
 </h2>
 
 {cart.map((item) => (
