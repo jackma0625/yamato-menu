@@ -3,6 +3,7 @@ import { categories } from "./menu";
 
 export default function App() {
   const [cart, setCart] = useState([])
+  const [toast, setToast] = useState("")
   const [showCart, setShowCart] = useState(false)
   useEffect(() => {
 
@@ -32,6 +33,11 @@ export default function App() {
     } else {
       setCart([...cart, { ...item, qty: 1 }])
     }
+    setToast(`${item.name} agregado`)
+
+setTimeout(() => {
+  setToast("")
+}, 2000)
   }
   const removeFromCart = (name) => {
 
@@ -70,6 +76,26 @@ export default function App() {
 
   return (
     <div className="bg-[#f5f5f5] min-h-screen">
+{toast && (
+  <div
+    className="
+      fixed
+      top-5
+      right-5
+      bg-black
+      text-white
+      px-5
+      py-3
+      rounded-2xl
+      shadow-2xl
+      z-[100]
+      animate-bounce
+    "
+  >
+    ✅ {toast}
+  </div>
+)}
+
 
       {/* HEADER */}
       <div className="bg-black text-white p-6 sticky top-0 z-50 shadow-xl">
@@ -214,7 +240,19 @@ export default function App() {
     font-bold
   "
 >
-  Mi Orden ({cart.length})
+  Mi Orden <span
+  className="
+    bg-red-500
+    text-white
+    px-2
+    py-1
+    rounded-full
+    ml-2
+    animate-pulse
+  "
+>
+  {cart.length}
+</span>
 </button>
 
       <button
