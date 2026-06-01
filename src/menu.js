@@ -72,7 +72,7 @@ export const categories = [
           name: "Kids Chickens",
           desc: "Crujiente de pollo acompanada de papas fritas",
           price: "L.189",
-          image: "/images/kids-chickens.png",
+          image: "/images/kids-chicken.png",
         },
   
       ],
