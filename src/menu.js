@@ -311,16 +311,30 @@ export const categories = [
   
         {
           name: "Milk Tea Clasica",
-          desc: "Extra Boba +20",
+          desc: "Con Boba(tapioca,fresa,mango,manzana) +20",
           price: "L.90",
-          image: "/images/yamato.jpg",
+          image: "/images/milk-tea.png",
         },
   
         {
-          name: "Coca Cola",
-          desc: "",
-          price: "L.45",
-          image: "/images/yamato.jpg",
+          name: "Milk Tea Matcha",
+          desc: "Con Boba(tapioca,fresa,mango,manzana) +20",
+          price: "L.110",
+          image: "/images/milk-tea.png",
+        },
+
+        {
+          name: "Milk Tea Fresa",
+          desc: "Con Boba(tapioca,fresa,mango,manzana) +20",
+          price: "L.110",
+          image: "/images/milktea-fresa.png",
+        },
+
+        {
+          name: "Latte de Coco Frio",
+          desc: "estilo asiatico",
+          price: "L.90",
+          image: "/images/latte-coco.png",
         },
   
       ],
