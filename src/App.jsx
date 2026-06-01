@@ -168,6 +168,7 @@ setTimeout(() => {
                     <img
                       src={item.image}
                       alt={item.name}
+                      loading="lazy"
                       className="
                         w-full
                         aspect-square
