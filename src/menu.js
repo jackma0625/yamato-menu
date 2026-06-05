@@ -8,8 +8,19 @@ export const categories = [
         {
           name: "Edamame",
           desc: "Al vapor o asado",
-          price: "L.85 / 110",
-          image: "/images/edamame-asado.png",
+          image: "/images/edamame.webp",
+        
+          options: [
+            {
+              label: "Al vapor",
+              price: "L.85",
+            },
+        
+            {
+              label: "Asado",
+              price: "L.110",
+            },
+          ],
         },
   
         {
