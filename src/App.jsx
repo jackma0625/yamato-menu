@@ -206,15 +206,14 @@ onClick={() =>
   })
 }
 className="
-  border
-  border-black
-  bg-white
-  text-black
-  rounded-full
+  bg-black
+  text-white
   px-4
   py-2
-  text-sm
-  font-semibold
+  rounded-xl
+  active:scale-95
+  active:bg-red-500
+  transition
 "
 >
 {option.name} - L.{option.price}
@@ -288,7 +287,9 @@ className="
     animate-pulse
   "
 >
-  {cart.length}
+{
+  cart.reduce((sum, item) => sum + item.qty, 0)
+}
 </span>
 </button>
 

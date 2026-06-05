@@ -60,9 +60,20 @@ export const categories = [
   
         {
           name: "Brocheta de Camaron",
-          desc: "2 / 5 piezas ",
-          price: "L.109 / 229",
+          desc: "2 / 5 piezas",
           image: "/images/brocheta-camaron.png",
+        
+          options: [
+            {
+              name: "De 2",
+              price: 109,
+            },
+        
+            {
+              name: "De 5",
+              price: 229,
+            },
+          ],
         },
   
         {
