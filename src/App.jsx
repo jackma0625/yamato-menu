@@ -189,24 +189,60 @@ setTimeout(() => {
 
                       <div className="mt-4">
 
-                        <p className="text-red-500 font-black text-xl">
-                          {item.price}
-                        </p>
-                        <button
-                           onClick={() => addToCart(item)}
-                           className="
-  bg-black
-  text-white
+                        
+                      {item.options ? (
+
+<div className="flex flex-col gap-2 mt-3">
+
+  {item.options.map((option, idx) => (
+
+<button
+key={idx}
+onClick={() =>
+  addToCart({
+    ...item,
+    name: `${item.name} - ${option.name}`,
+    price: `L.${option.price}`,
+  })
+}
+className="
+  border
+  border-black
+  bg-white
+  text-black
+  rounded-full
   px-4
   py-2
-  rounded-xl
-  active:scale-95
-  active:bg-red-500
-  transition
+  text-sm
+  font-semibold
 "
-                          >
-                           Agregar
-                        </button>
+>
+{option.name} - L.{option.price}
+</button>
+
+  ))}
+
+</div>
+
+) : (
+
+<button
+  onClick={() => addToCart(item)}
+  className="
+    bg-black
+    text-white
+    px-4
+    py-2
+    rounded-xl
+    active:scale-95
+    active:bg-red-500
+    transition
+  "
+>
+  Agregar
+</button>
+
+)}
                         
 
                       </div>
