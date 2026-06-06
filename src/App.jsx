@@ -103,6 +103,9 @@ setTimeout(() => {
         <h1 className="text-4xl font-black">
           SUSHI YAMATO
         </h1>
+        <p className="text-sm text-yellow-400 mt-2 font-semibold">
+  Fresh Sushi • Ramen • Bubble Tea
+</p>
 
         <p className="text-gray-400 mt-1">
           La Entrada de Copan
