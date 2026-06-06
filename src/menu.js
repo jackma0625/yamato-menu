@@ -12,7 +12,7 @@ export const categories = [
         
           options: [
             {
-              name: "Al vapor",
+              name: "Alvapor",
               price: "85",
             },
         

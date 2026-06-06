@@ -107,6 +107,26 @@ setTimeout(() => {
         <p className="text-gray-400 mt-1">
           La Entrada de Copan
         </p>
+        <a
+  href="https://instagram.com/sushiyamato.hn"
+  target="_blank"
+  className="
+    inline-block
+    mt-3
+    bg-gradient-to-r
+    from-pink-500
+    via-red-500
+    to-yellow-500
+    text-white
+    px-4
+    py-2
+    rounded-full
+    text-sm
+    font-bold
+  "
+>
+  📸 @sushiyamato.hn
+</a>
 
         {/* CATEGORY */}
         <div className="flex gap-3 overflow-x-auto mt-5 pb-2">
