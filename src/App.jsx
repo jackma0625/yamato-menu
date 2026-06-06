@@ -224,6 +224,10 @@ className="
 </div>
 
 ) : (
+<>
+<p className="text-red-500 font-black text-xl mb-2">
+  {item.price}
+</p>
 
 <button
   onClick={() => addToCart(item)}
@@ -240,7 +244,7 @@ className="
 >
   Agregar
 </button>
-
+</>
 )}
                         
 
