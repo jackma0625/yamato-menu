@@ -121,10 +121,10 @@ setTimeout(() => {
     via-red-500
     to-yellow-500
     text-white
-    px-4
-    py-2
+    px-3
+    py-1.5
     rounded-full
-    text-sm
+    text-xs
     font-bold
   "
 >
@@ -137,10 +137,10 @@ setTimeout(() => {
   className="
     bg-white
     text-black
-    px-4
-    py-2
+    px-3
+    py-1.5
     rounded-full
-    text-sm
+    text-xs
     font-bold
   "
 >
@@ -159,7 +159,7 @@ setTimeout(() => {
               onClick={() => setSelected(cat.category)}
               className={`
                 px-6
-                py-3
+                py-2
                 rounded-full
                 font-bold
                 whitespace-nowrap
@@ -255,6 +255,8 @@ className="
   active:scale-95
   active:bg-red-500
   transition
+  whitespace-nowrap
+text-base
 "
 >
 {option.name} - L.{option.price}
@@ -308,18 +310,19 @@ className="
       <button
   onClick={() => setShowCart(!showCart)}
   className="
-    fixed
-    bottom-20
-    right-5
-    z-40
-    bg-black
-    text-white
-    px-5
-    py-3
-    rounded-full
-    shadow-xl
-    font-bold
-  "
+  fixed
+  bottom-16
+  right-3
+  z-40
+  bg-black
+  text-white
+  px-3
+  py-2
+  rounded-full
+  shadow-lg
+  font-semibold
+  text-sm
+"
 >
   Mi Orden <span
   className="
@@ -356,19 +359,19 @@ onClick={() => {
     window.open(url)
   }}
   className="
-    fixed
-    bottom-2
-    right-5
-    z-10
-    bg-green-500
-    text-white
-    px-6
-    py-4
-    rounded-full
-    shadow-2xl
-    font-black
-    text-lg
-  "
+  fixed
+  bottom-3
+  right-3
+  z-10
+  bg-green-500
+  text-white
+  px-3
+  py-2
+  rounded-full
+  shadow-lg
+  font-semibold
+  text-sm
+"
 >  WhatsApp Order
 </button>
 {showCart && (
