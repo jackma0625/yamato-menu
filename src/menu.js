@@ -8,7 +8,7 @@ export const categories = [
         {
           name: "Edamame",
           desc: "Al vapor o asado",
-          image: "/images/edamame.png",
+          image: "/images/edamame.webp",
         
           options: [
             {
@@ -27,41 +27,41 @@ export const categories = [
           name: "Miso Soup",
           desc: "Sopa japonesa con tofu y algas",
           price: "L.120",
-          image: "/images/miso-soup.png",
+          image: "/images/miso-soup.webp",
         },
   
         {
           name: "Ensalada de Wakame",
           desc: "Alga marina con sésamo",
           price: "L.90",
-          image: "/images/ensalada-wakame.png",
+          image: "/images/ensalada-wakame.webp",
         },
   
         {
           name: "Gyoza",
           desc: "Pollo o cerdo · al vapor o frito",
           price: "L.160",
-          image: "/images/gyoza.png",
+          image: "/images/gyoza.webp",
         },
   
         {
           name: "Bao Asiática",
           desc: "Pan al vapor relleno de cerdo BBQ",
           price: "L.150",
-          image: "/images/bao.png",
+          image: "/images/bao.webp",
         },
   
         {
           name: "Spring Roll",
           desc: "Crujiente relleno de vegetales",
           price: "L.170",
-          image: "/images/spring-roll.png",
+          image: "/images/spring-roll.webp",
         },
   
         {
           name: "Brocheta de Camaron",
           desc: "2 / 5 piezas",
-          image: "/images/brocheta-camaron.png",
+          image: "/images/brocheta-camaron.webp",
         
           options: [
             {
@@ -80,21 +80,21 @@ export const categories = [
           name: "Tempura Mixto",
           desc: "Verduras y 3 piezas de camarones",
           price: "L.249",
-          image: "/images/tempura.png",
+          image: "/images/tempura.webp",
         },
   
         {
           name: "Ika Sansai",
           desc: "Ensalada de calamar",
           price: "L.189",
-          image: "/images/ika-sansai.png",
+          image: "/images/ika-sansai.webp",
         },
 
         {
           name: "Kids Chickens",
           desc: "Crujiente de pollo acompanada de papas fritas",
           price: "L.189",
-          image: "/images/kids-chicken.png",
+          image: "/images/kids-chicken.webp",
         },
   
       ],
@@ -109,175 +109,175 @@ export const categories = [
           name: "Yamato Roll",
           desc: "Camaron, aguacate, queso, zanahoria",
           price: "L.249",
-          image: "/images/yamato.png",
+          image: "/images/yamato.webp",
         },
   
         {
           name: "Tokyo Roll",
           desc: "Camaron, queso, aguacate, salmon, tobikos",
           price: "L.300",
-          image: "/images/tokyo.png",
+          image: "/images/tokyo.webp",
         },
   
         {
           name: "Ebi Roll",
           desc: "Queso, aguacate, surimi, camaron",
           price: "L.250",
-          image: "/images/ebi.png",
+          image: "/images/ebi.webp",
         },
 
         {
             name: "Salmon Lovers Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.339",
-            image: "/images/salmon-lovers.png",
+            image: "/images/salmon-lovers.webp",
           },
   
           {
             name: "Sesame Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.259",
-            image: "/images/sesame.png",
+            image: "/images/sesame.webp",
           },
 
           {
             name: "Sake Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.279",
-            image: "/images/sake.png",
+            image: "/images/sake.webp",
           },
 
           {
             name: "Boston Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/boston.png",
+            image: "/images/boston.webp",
           },
 
           {
             name: "Dragon Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.349",
-            image: "/images/dragon.png",
+            image: "/images/dragon.webp",
           },
 
           {
             name: "Zambo Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/zambo.png",
+            image: "/images/zambo.webp",
           },
 
           {
             name: "Kani Kama Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/kani.png",
+            image: "/images/kani.webp",
           },
 
           {
             name: "Fuji Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.299",
-            image: "/images/fuji.png",
+            image: "/images/fuji.webp",
           },
 
           {
             name: "Sakura Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.289",
-            image: "/images/sakura.png",
+            image: "/images/sakura.webp",
           },
 
           {
             name: "Nagoya Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.280",
-            image: "/images/nagoya.png",
+            image: "/images/nagoya.webp",
           },
 
           {
             name: "Okassan Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.280",
-            image: "/images/okassan.png",
+            image: "/images/okassan.webp",
           },
 
           {
             name: "California Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.210",
-            image: "/images/california.png",
+            image: "/images/california.webp",
           },
 
           {
             name: "Nemo Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/nemo.png",
+            image: "/images/nemo.webp",
           },
 
           {
             name: "Alaska Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/alaska.png",
+            image: "/images/alaska.webp",
           },
 
           {
             name: "Sofia Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/sofia.png",
+            image: "/images/sofia.webp",
           },
 
           {
             name: "Hokkaido Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.220",
-            image: "/images/hokkaido.png",
+            image: "/images/hokkaido.webp",
           },
 
           {
             name: "Wakame Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/wakame.png",
+            image: "/images/wakame.webp",
           },
 
           {
             name: "Queso Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.220",
-            image: "/images/queso.png",
+            image: "/images/queso.webp",
           },
 
           {
             name: "Osaka Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/osaka.png",
+            image: "/images/osaka.webp",
           },
 
           {
             name: "Chicken Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.250",
-            image: "/images/chicken.png",
+            image: "/images/chicken.webp",
           },
 
           {
             name: "Abokado Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.220",
-            image: "/images/abokado.png",
+            image: "/images/abokado.webp",
           },
 
           {
             name: "Catracho Roll",
             desc: "Queso crema y camaron tempura",
             price: "L.220",
-            image: "/images/catracho.png",
+            image: "/images/catracho.webp",
           },
       ],
     },
@@ -291,14 +291,14 @@ export const categories = [
           name: "Ramen",
           desc: "Caldo japones con pollo o camaron",
           price: "L.280",
-          image: "/images/ramen.png",
+          image: "/images/ramen.webp",
         },
   
         {
           name: "Udon",
           desc: "De pollo o camaron",
           price: "L.280",
-          image: "/images/udon.png",
+          image: "/images/udon.webp",
         },
   
       ],
@@ -313,14 +313,14 @@ export const categories = [
           name: "Teriyaki Chicken Bowl",
           desc: "Pollo teriyaki estilo japones",
           price: "L.250",
-          image: "/images/teriyaki-chicken.png",
+          image: "/images/teriyaki-chicken.webp",
         },
   
         {
           name: "Sweet Chili Chicken Bowl",
           desc: "Pollo sweet chili estilo japones",
           price: "L.250",
-          image: "/images/chili-chicken.png",
+          image: "/images/chili-chicken.webp",
         },
   
       ],
@@ -342,28 +342,28 @@ export const categories = [
           name: "Milk Tea Clasica",
           desc: "Con Boba(tapioca,fresa,mango,manzana) +20",
           price: "L.90",
-          image: "/images/milk-tea.png",
+          image: "/images/milk-tea.webp",
         },
   
         {
           name: "Milk Tea Matcha",
           desc: "Con Boba(tapioca,fresa,mango,manzana) +20",
           price: "L.110",
-          image: "/images/milk-tea.png",
+          image: "/images/milk-tea.webp",
         },
 
         {
           name: "Milk Tea Fresa",
           desc: "Con Boba(tapioca,fresa,mango,manzana) +20",
           price: "L.110",
-          image: "/images/milktea-fresa.png",
+          image: "/images/milktea-fresa.webp",
         },
 
         {
           name: "Latte de Coco Frio",
           desc: "estilo asiatico",
           price: "L.90",
-          image: "/images/latte-coco.png",
+          image: "/images/latte-coco.webp",
         },
   
       ],
