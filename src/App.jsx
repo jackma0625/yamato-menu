@@ -104,11 +104,11 @@ setTimeout(() => {
           SUSHI YAMATO
         </h1>
         <p className="text-sm text-yellow-400 mt-2 font-semibold">
-  Fresh Sushi • Ramen • Bubble Tea
+        Sushi • Ramen • Bowls • Bubble Tea
 </p>
 
         <p className="text-gray-400 mt-1">
-          La Entrada de Copan
+        Restaurante japonés en Copán, Honduras 
         </p>
         <div className="flex gap-3 mt-3">
 
@@ -146,6 +146,12 @@ setTimeout(() => {
 >
   📍 Maps
 </a>
+
+</div>
+
+<div className="mt-5">
+
+
 
 </div>
 

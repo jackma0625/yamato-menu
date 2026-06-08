@@ -289,14 +289,14 @@ export const categories = [
   
         {
           name: "Ramen",
-          desc: "Caldo japones con pollo o camaron",
+          desc: "Ramen japonés en Copán con pollo o camarón",
           price: "L.280",
           image: "/images/ramen.webp",
         },
   
         {
           name: "Udon",
-          desc: "De pollo o camaron",
+          desc: "Udon japonés estilo ramen en Copán",
           price: "L.280",
           image: "/images/udon.webp",
         },
@@ -327,16 +327,11 @@ export const categories = [
     },
   
     {
-      category: "Bebidas",
+      category: "Bubble Tea",
   
       items: [
   
-        {
-          name: "Te Verde",
-          desc: "Cold Brew Jasmine Green Tea",
-          price: "L.60",
-          image: "/images/yamato.jpg",
-        },
+        
   
         {
           name: "Milk Tea Clasica",
