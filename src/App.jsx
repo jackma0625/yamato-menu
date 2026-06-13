@@ -155,6 +155,29 @@ setTimeout(() => {
 
 </div>
 
+
+<div
+  className="
+    mt-5
+    bg-yellow-400
+    text-black
+    rounded-2xl
+    px-4
+    py-3
+    font-bold
+    text-sm
+    shadow-lg
+    animate-pulse
+  "
+>
+  ⚽ Vive el Mundial con Sushi Yamato <br />
+
+  <span className="text-gray-800">
+    🍣 Promos especiales disponibles
+  </span>
+
+</div>
+
         {/* CATEGORY */}
         <div className="flex gap-3 overflow-x-auto mt-5 pb-2">
 
