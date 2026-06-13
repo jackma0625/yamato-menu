@@ -96,7 +96,7 @@ setTimeout(() => {
   </div>
 )}
 
-```jsx
+
 {/* HEADER */}
 <div className="bg-black text-white p-6 shadow-xl">
 
@@ -214,7 +214,7 @@ setTimeout(() => {
 
   </div>
 </div>
-```
+
 
       {/* PRODUCTS */}
       <div className="p-4">
