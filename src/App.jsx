@@ -170,10 +170,10 @@ setTimeout(() => {
     animate-pulse
   "
 >
-  ⚽ Vive el Mundial con Sushi Yamato <br />
+Brasil vs Marruecos hoy 4PM <br />
 
   <span className="text-gray-800">
-    🍣 Promos especiales disponibles
+    🍣 Vive el Mundial con Sushi Yamato
   </span>
 
 </div>
