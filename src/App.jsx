@@ -96,117 +96,125 @@ setTimeout(() => {
   </div>
 )}
 
+```jsx
+{/* HEADER */}
+<div className="bg-black text-white p-6 shadow-xl">
 
-      {/* HEADER */}
-      <div className="bg-black text-white p-6 sticky top-0 z-50 shadow-xl">
+  <h1 className="text-4xl font-black">
+    SUSHI YAMATO
+  </h1>
 
-        <h1 className="text-4xl font-black">
-          SUSHI YAMATO
-        </h1>
-        <p className="text-sm text-yellow-400 mt-2 font-semibold">
-        Sushi • Ramen • Bowls • Bubble Tea
-</p>
+  <p className="text-sm text-yellow-400 mt-2 font-semibold">
+    Sushi • Ramen • Bowls • Bubble Tea
+  </p>
 
-        <p className="text-gray-400 mt-1">
-        Restaurante japonés en Copán, Honduras 
-        </p>
-        <div className="flex gap-3 mt-3">
+  <p className="text-gray-400 mt-1">
+    Restaurante japonés en Copán, Honduras
+  </p>
 
-<a
-  href="https://instagram.com/sushiyamato.hn"
-  target="_blank"
-  className="
-    bg-gradient-to-r
-    from-pink-500
-    via-red-500
-    to-yellow-500
-    text-white
-    px-3
-    py-1.5
-    rounded-full
-    text-xs
-    font-bold
-  "
->
-  📸 Instagram
-</a>
+  <div className="flex gap-3 mt-3">
 
-<a
-  href="https://maps.app.goo.gl/LXmX42vSrZLLTk2v8"
-  target="_blank"
-  className="
-    bg-white
-    text-black
-    px-3
-    py-1.5
-    rounded-full
-    text-xs
-    font-bold
-  "
->
-  📍 Maps
-</a>
+    <a
+      href="https://instagram.com/sushiyamato.hn"
+      target="_blank"
+      className="
+        bg-gradient-to-r
+        from-pink-500
+        via-red-500
+        to-yellow-500
+        text-white
+        px-3
+        py-1.5
+        rounded-full
+        text-xs
+        font-bold
+      "
+    >
+      📸 Instagram
+    </a>
+
+    <a
+      href="https://maps.app.goo.gl/LXmX42vSrZLLTk2v8"
+      target="_blank"
+      className="
+        bg-white
+        text-black
+        px-3
+        py-1.5
+        rounded-full
+        text-xs
+        font-bold
+      "
+    >
+      📍 Maps
+    </a>
+
+  </div>
+
+  <div
+    className="
+      mt-5
+      bg-yellow-400
+      text-black
+      rounded-2xl
+      px-4
+      py-3
+      font-bold
+      text-sm
+      shadow-lg
+      animate-pulse
+    "
+  >
+    ⚽ Brasil vs Marruecos hoy 4PM <br />
+
+    <span className="text-gray-800">
+      🍣 Vive el Mundial con Sushi Yamato
+    </span>
+
+  </div>
 
 </div>
 
-<div className="mt-5">
-
-
-
-</div>
-
-
+{/* CATEGORY */}
 <div
   className="
-    mt-5
-    bg-yellow-400
-    text-black
-    rounded-2xl
-    px-4
+    sticky
+    top-0
+    z-50
+    bg-black
     py-3
-    font-bold
-    text-sm
-    shadow-lg
-    animate-pulse
+    shadow-xl
   "
 >
-Brasil vs Marruecos hoy 4PM <br />
+  <div className="flex gap-3 overflow-x-auto px-2">
 
-  <span className="text-gray-800">
-    🍣 Vive el Mundial con Sushi Yamato
-  </span>
+    {categories.map((cat) => (
 
+      <button
+        key={cat.category}
+        onClick={() => setSelected(cat.category)}
+        className={`
+          px-6
+          py-3
+          rounded-full
+          font-bold
+          whitespace-nowrap
+          transition
+          ${
+            selected === cat.category
+              ? "bg-red-500 text-white"
+              : "bg-white text-black"
+          }
+        `}
+      >
+        {cat.category}
+      </button>
+
+    ))}
+
+  </div>
 </div>
-
-        {/* CATEGORY */}
-        <div className="flex gap-3 overflow-x-auto mt-5 pb-2">
-
-          {categories.map((cat) => (
-
-            <button
-              key={cat.category}
-              onClick={() => setSelected(cat.category)}
-              className={`
-                px-6
-                py-2
-                rounded-full
-                font-bold
-                whitespace-nowrap
-                ${
-                  selected === cat.category
-                    ? "bg-red-500 text-white"
-                    : "bg-white text-black"
-                }
-              `}
-            >
-              {cat.category}
-            </button>
-
-          ))}
-
-        </div>
-
-      </div>
+```
 
       {/* PRODUCTS */}
       <div className="p-4">
