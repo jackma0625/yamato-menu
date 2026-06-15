@@ -73,6 +73,40 @@ setTimeout(() => {
   
   }, 0)
   const [selected, setSelected] = useState("Entradas");
+  
+const promos = [
+  {
+    text: "🔥 Miércoles Bubble Tea -15%",
+    color: "bg-yellow-400",
+  },
+
+  {
+    text: "🎉 Jueves 3x2 en Rollos",
+    color: "bg-red-400",
+  },
+
+  {
+    text: "⚽ Vive el Mundial con Sushi Yamato",
+    color: "bg-green-400",
+  },
+];
+
+const [promoIndex, setPromoIndex] = useState(0);
+
+useEffect(() => {
+
+  const interval = setInterval(() => {
+
+    setPromoIndex((prev) =>
+      prev === promos.length - 1 ? 0 : prev + 1
+    );
+
+  }, 3000);
+
+  return () => clearInterval(interval);
+
+}, []);
+
 
   return (
     <div className="bg-[#f5f5f5] min-h-screen">
@@ -151,27 +185,25 @@ setTimeout(() => {
 
   </div>
 
-  <div
-    className="
-      mt-5
-      bg-yellow-400
-      text-black
-      rounded-2xl
-      px-4
-      py-3
-      font-bold
-      text-sm
-      shadow-lg
-      animate-pulse
-    "
-  >
-    ⚽ Brasil vs Marruecos hoy 4PM <br />
+  
+<div
+  className={`
+    mt-5
+    ${promos[promoIndex].color}
+    text-black
+    rounded-2xl
+    px-4
+    py-3
+    font-bold
+    text-sm
+    shadow-lg
+    transition-all
+    duration-500
+  `}
+>
+  {promos[promoIndex].text}
+</div>
 
-    <span className="text-gray-800">
-      🍣 Vive el Mundial con Sushi Yamato
-    </span>
-
-  </div>
 
 </div>
 
