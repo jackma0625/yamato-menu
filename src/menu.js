@@ -128,154 +128,154 @@ export const categories = [
 
         {
             name: "Salmon Lovers Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Salmon y Aguacate",
             price: "L.339",
             image: "/images/salmon-lovers.webp",
           },
   
           {
             name: "Sesame Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, camaron empanizado y aguacate",
             price: "L.259",
             image: "/images/sesame.webp",
           },
 
           {
             name: "Sake Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Salmon, queso crema, aguacate, cebollin",
             price: "L.279",
             image: "/images/sake.webp",
           },
 
           {
             name: "Boston Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Camarón tempura, surimi,Queso, Aguacate",
             price: "L.250",
             image: "/images/boston.webp",
           },
 
           {
             name: "Dragon Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, camaron tempura, aguacate, anguila y tobikos",
             price: "L.349",
             image: "/images/dragon.webp",
           },
 
           {
             name: "Zambo Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, camaron tempura, aguacate y platano",
             price: "L.250",
             image: "/images/zambo.webp",
           },
 
           {
             name: "Kani Kama Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, aguacate y surimi",
             price: "L.250",
             image: "/images/kani.webp",
           },
 
           {
             name: "Fuji Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, aguacate, salmon y tobikos",
             price: "L.299",
             image: "/images/fuji.webp",
           },
 
           {
             name: "Sakura Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, aguacate, surimi y salmon",
             price: "L.289",
             image: "/images/sakura.webp",
           },
 
           {
             name: "Nagoya Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, salmon y agaucate",
             price: "L.280",
             image: "/images/nagoya.webp",
           },
 
           {
             name: "Okassan Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, pepino, surimi y salmon",
             price: "L.280",
             image: "/images/okassan.webp",
           },
 
           {
             name: "California Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "aguacate, pepino y surimi",
             price: "L.210",
             image: "/images/california.webp",
           },
 
           {
             name: "Nemo Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, aguacate, pepino y surimi",
             price: "L.250",
             image: "/images/nemo.webp",
           },
 
           {
             name: "Alaska Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, surimi, pescado tempura y aguacate",
             price: "L.250",
             image: "/images/alaska.webp",
           },
 
           {
             name: "Sofia Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, camaron tempura, aguacate, surimi y lechuga",
             price: "L.250",
             image: "/images/sofia.webp",
           },
 
           {
             name: "Hokkaido Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, aguacate y surimi empanizado",
             price: "L.220",
             image: "/images/hokkaido.webp",
           },
 
           {
             name: "Wakame Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, camaron tempura, aguacate y wakame",
             price: "L.250",
             image: "/images/wakame.webp",
           },
 
           {
             name: "Queso Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, aguacate, pepino, surimi y queso amricano",
             price: "L.220",
             image: "/images/queso.webp",
           },
 
           {
             name: "Osaka Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Pollo desmenuzado, Queso, aguacate y pepino.",
             price: "L.250",
             image: "/images/osaka.webp",
           },
 
           {
             name: "Chicken Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, platano, pollo tempura y aguacate",
             price: "L.250",
             image: "/images/chicken.webp",
           },
 
           {
             name: "Abokado Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema y aguacate",
             price: "L.220",
             image: "/images/abokado.webp",
           },
 
           {
             name: "Catracho Roll",
-            desc: "Queso crema y camaron tempura",
+            desc: "Queso crema, aguacate y platano",
             price: "L.220",
             image: "/images/catracho.webp",
           },
