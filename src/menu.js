@@ -264,15 +264,14 @@ export const categories = [
     category: "Especialidades",
     items: [
       {
-        name: "Camaron Estilo Cantone",
+        name: "Camarón Cantonés",
         desc: "camarones al vapor con jengible y cebollina",
         image: "/images/camaron-cantones.webp",
         options: [
-          { name: "18 unidades", price: 349 },
-          { name: "9 unidades", price: 180 },
+          { name: "18u", price: 349 },
+          { name: "9u", price: 180 },
         ],
       },
-      
     ],
   },
 
