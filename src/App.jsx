@@ -65,12 +65,7 @@ setTimeout(() => {
   
   }
   const total = cart.reduce((sum, item) => {
-
-    const price =
-      parseInt(item.price.replace("L.", "").split("/")[0])
-  
-    return sum + price * item.qty
-  
+    return sum + Number(item.price) * item.qty
   }, 0)
   const [selected, setSelected] = useState("Entradas");
   
@@ -338,7 +333,7 @@ text-base
 ) : (
 <>
 <p className="text-red-500 font-black text-xl mb-2">
-  {item.price}
+  L.{item.price}
 </p>
 
 <button
@@ -416,7 +411,7 @@ onClick={() => {
     .map(
       (item) =>
         `${item.qty}x ${item.name} - L.${
-          Number(item.price.replace("L.", "")) * item.qty
+          Number(item.price) * item.qty
         }`
     )
       .join("\n")
