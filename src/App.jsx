@@ -184,7 +184,7 @@ useEffect(() => {
         <p className="font-bold mt-2">
           Camarón Cantonés
         </p>
-        <p className="text-red-500 font-black text-xl mt-2">
+        <p className="text-500 font-black text-xl mt-2">
   18u L.349 | 9u L.180
 </p>
 
@@ -516,14 +516,14 @@ text-base
 
       <button
 onClick={() => {
-    const message = cart
-    .map(
-      (item) =>
-        `${item.qty}x ${item.name} - L.${
-          Number(item.price) * item.qty
-        }`
-    )
-      .join("\n")
+  const message = cart
+  .map(
+  (item) =>
+  `${item.qty}x ${item.name} - L.${
+  Number(item.price) * item.qty
+  }`
+  )
+  .join("\n")
 
     const url = `https://wa.me/50494340468?text=${encodeURIComponent(
       `Hola, quiero ordenar:\n\n${message}\n\nTotal: L.${total}`
@@ -577,7 +577,7 @@ Mi Orden
       </p>
 
       <p>
-        {item.qty} x {item.price}
+      {item.qty} x L.{item.price}
       </p>
     </div>
 
