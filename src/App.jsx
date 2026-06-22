@@ -5,6 +5,7 @@ export default function App() {
   const [cart, setCart] = useState([])
   const [toast, setToast] = useState("")
   const [showCart, setShowCart] = useState(false)
+  const [showPromo, setShowPromo] = useState(false)
   useEffect(() => {
 
     const handleScroll = () => {
@@ -15,6 +16,18 @@ export default function App() {
   
     return () => {
       window.removeEventListener("scroll", handleScroll)
+    }
+  
+  }, [])
+
+  useEffect(() => {
+
+    const lastClosed = localStorage.getItem("promoClosed")
+  
+    const today = new Date().toDateString()
+  
+    if (lastClosed !== today) {
+      setShowPromo(true)
     }
   
   }, [])
@@ -105,6 +118,102 @@ useEffect(() => {
 
   return (
     <div className="bg-[#f5f5f5] min-h-screen">
+
+{showPromo && (
+  <div
+  onClick={() => {
+
+    localStorage.setItem(
+      "promoClosed",
+      new Date().toDateString()
+    )
+
+    setShowPromo(false)
+
+  }}
+  className="
+    fixed
+    inset-0
+    bg-black/60
+      z-[999]
+      flex
+      items-center
+      justify-center
+      p-4
+    "
+  >
+    <div
+  onClick={(e) => e.stopPropagation()}
+  className="
+    bg-white
+        rounded-3xl
+        max-w-sm
+        w-full
+        overflow-hidden
+        shadow-2xl
+      "
+    >
+
+      <img
+        src="/images/camaron-cantones.webp"
+        className="w-full h-56 object-cover"
+      />
+
+      <div className="p-5">
+
+        <button
+          onClick={() => {
+
+            localStorage.setItem(
+              "promoClosed",
+              new Date().toDateString()
+            )
+
+            setShowPromo(false)
+
+          }}
+          className="float-right text-xl font-bold"
+        >
+          ✕
+        </button>
+
+        <h2 className="text-3xl font-black text-red-500">
+  NUEVO
+</h2>
+
+        <p className="font-bold mt-2">
+          Camarón Cantonés
+        </p>
+        <p className="text-red-500 font-black text-xl mt-2">
+  18u L.349 | 9u L.180
+</p>
+
+        <p className="text-gray-600 mt-2">
+          Camarones al vapor con jengibre y cebollina
+        </p>
+        <button
+  onClick={() => setShowPromo(false)}
+  className="
+    mt-4
+    w-full
+    bg-black
+    text-white
+    py-3
+    rounded-xl
+    font-bold
+    active:scale-95
+    transition
+  "
+>
+  Ver Menú
+</button>
+
+      </div>
+
+    </div>
+  </div>
+)}
+
 {toast && (
   <div
     className="
