@@ -416,7 +416,7 @@ onClick={() =>
   addToCart({
     ...item,
     name: `${item.name} - ${option.name}`,
-    price: `L.${option.price}`,
+    price: option.price,
   })
 }
 className="
