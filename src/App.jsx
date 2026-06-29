@@ -283,19 +283,63 @@ export default function App() {
         </div>
       </div>
 
-      {/* ===== Products ===== */}
-      <div className="p-4">
-        {categories
-          .filter((cat) => cat.category === selected)
-          .map((cat) => (
-            <div key={cat.category} className="mb-10">
-              <h2 className="text-3xl font-black mb-5">{cat.category}</h2>
-              <div className="grid grid-cols-2 gap-4">
-                {cat.items.map((item, index) => renderProductCard(item, index))}
-              </div>
-            </div>
-          ))}
+     {/* ===== Products ===== */}
+<div className="p-4">
+  {categories
+    .filter((cat) => cat.category === selected)
+    .map((cat) => (
+
+      <div key={cat.category} className="mb-10">
+
+        <h2 className="text-3xl font-black mb-5">
+          {cat.category}
+        </h2>
+
+        {cat.category === "Entradas" && (
+  <p className="text-gray-600 mb-4">
+    Entradas japonesas en Copán • Edamame, Gyoza y Miso Soup.
+  </p>
+)}
+
+{cat.category === "Rollos" && (
+  <p className="text-gray-600 mb-4">
+    Sushi en Copán • frescos preparados al momento.
+  </p>
+)}
+
+{cat.category === "Ramen" && (
+  <p className="text-gray-600 mb-4">
+    Ramen japonés en Copán • Caldo casero y fideos estilo japonés.
+  </p>
+)}
+
+{cat.category === "Bowls" && (
+  <p className="text-gray-600 mb-4">
+    Bowls asiático en Copán • Teriyaki Chicken Bowl y Sweet Chili Chicken Bowl.
+  </p>
+)}
+
+{cat.category === "Especialidades" && (
+  <p className="text-gray-600 mb-4">
+    Especialidades asiático en Copán • Platos exclusivos de Sushi Yamato.
+  </p>
+)}
+
+{cat.category === "Bubble Tea" && (
+  <p className="text-gray-600 mb-4">
+    Bubble Tea en Copán • Té con boba estilo asiático.
+  </p>
+)}
+
+        <div className="grid grid-cols-2 gap-4">
+          {cat.items.map((item, index) =>
+            renderProductCard(item, index)
+          )}
+        </div>
+
       </div>
+    ))}
+</div>
 
       {/* ===== Floating Buttons ===== */}
       {/* Cart Toggle */}
