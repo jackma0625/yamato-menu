@@ -19,6 +19,7 @@ export default function App() {
   const [showPromo, setShowPromo] = useState(false);
   const [selected, setSelected] = useState("Entradas");
   const [promoIndex, setPromoIndex] = useState(0);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   // ============ Derived State ============
   const total = cart.reduce((sum, item) => sum + Number(item.price) * item.qty, 0);
@@ -98,27 +99,15 @@ export default function App() {
   const renderItemOptions = (item) => {
     if (item.options) {
       return (
-        <div className="flex flex-col gap-2 mt-3">
-          {item.options.map((option, idx) => (
-            <button
-              key={idx}
-              onClick={() =>
-                addToCart({
-                  ...item,
-                  name: `${item.name} - ${option.name}`,
-                  price: option.price,
-                })
-              }
-              className="
-                bg-black text-white px-4 py-2 rounded-xl
-                active:scale-95 active:bg-red-500
-                transition whitespace-nowrap text-base
-              "
-            >
-              {option.name} - L.{option.price}
-            </button>
-          ))}
-        </div>
+        <button
+          onClick={() => setSelectedItem(item)}
+          className="
+            bg-black text-white px-4 py-2 rounded-xl
+            active:scale-95 active:bg-red-500 transition
+          "
+        >
+          Elegir opción
+        </button>
       );
     }
 
@@ -370,6 +359,46 @@ export default function App() {
           WhatsApp Order
         </button>
       )}
+
+{selectedItem && (
+  <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center p-4">
+    <div className="bg-white rounded-3xl p-5 w-full max-w-sm">
+      <h2 className="text-2xl font-black mb-4">
+        {selectedItem.name}
+      </h2>
+
+      <div className="flex flex-col gap-3">
+        {selectedItem.options.map((option, idx) => (
+          <button
+            key={idx}
+            onClick={() => {
+              addToCart({
+                ...selectedItem,
+                name: `${selectedItem.name} - ${option.name}`,
+                price: option.price,
+              });
+
+              setSelectedItem(null);
+            }}
+            className="
+              bg-black text-white py-3 rounded-xl
+              active:scale-95 transition
+            "
+          >
+            {option.name} - L.{option.price}
+          </button>
+        ))}
+      </div>
+
+      <button
+        onClick={() => setSelectedItem(null)}
+        className="mt-4 w-full border py-3 rounded-xl"
+      >
+        Cancelar
+      </button>
+    </div>
+  </div>
+)}
 
       {/* ===== Cart Drawer ===== */}
       {showCart && (

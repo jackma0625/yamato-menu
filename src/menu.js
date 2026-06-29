@@ -25,9 +25,27 @@ export const categories = [
       },
       {
         name: "Gyoza",
-        desc: "Pollo o cerdo · al vapor o frito",
-        price: 160,
+        desc: "Pollo o cerdo, al vapor o frito",
         image: "/images/gyoza.webp",
+      
+        options: [
+          {
+            name: "Cerdo al Vapor",
+            price: 169,
+          },
+          {
+            name: "Cerdo Frito",
+            price: 169,
+          },
+          {
+            name: "Pollo al Vapor",
+            price: 169,
+          },
+          {
+            name: "Pollo Frito",
+            price: 169,
+          },
+        ],
       },
       {
         name: "Bao Asiática",
@@ -275,6 +293,8 @@ export const categories = [
     ],
   },
 
+  
+  
   {
     category: "Bubble Tea",
     items: [
