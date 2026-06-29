@@ -299,23 +299,59 @@ export const categories = [
     category: "Bubble Tea",
     items: [
       {
-        name: "Milk Tea Clásica",
-        desc: "Con Boba (tapioca, fresa, mango, manzana) +20",
-        price: 90,
+        name: "Clasica Bubble Tea",
         image: "/images/milk-tea.webp",
+        desc: "Bubble Tea clásico con leche",
+      
+        options: [
+          { name: "Sin Boba", price: 90 },
+          { name: "Boba Tapioca", price: 110 },
+          { name: "Boba Fresa", price: 110 },
+          { name: "Boba Mango", price: 110 },
+          { name: "Boba Manzana", price: 110 },
+        ],
       },
       {
-        name: "Milk Tea Matcha",
-        desc: "Con Boba (tapioca, fresa, mango, manzana) +20",
-        price: 110,
+        name: "Matcha Bubble Tea",
         image: "/images/milk-tea.webp",
+        desc: "Té Matcha Japonés",
+      
+        options: [
+          {
+            name: "Sin Boba",
+            price: 110,
+          },
+          {
+            name: "Boba Tapioca",
+            price: 130,
+          },
+          {
+            name: "Boba Fresa",
+            price: 130,
+          },
+          {
+            name: "Boba Mango",
+            price: 130,
+          },
+          {
+            name: "Boba Manzana",
+            price: 130,
+          },
+        ],
       },
       {
-        name: "Milk Tea Fresa",
-        desc: "Con Boba (tapioca, fresa, mango, manzana) +20",
-        price: 110,
-        image: "/images/milktea-fresa.webp",
-      },
+        name: "Fresa Bubble Tea",
+        image: "/images/milk-tea.webp",
+        desc: "Bubble Tea de fresa con leche",
+      
+        options: [
+          { name: "Sin Boba", price: 110 },
+          { name: "Boba Tapioca", price: 130 },
+          { name: "Boba Fresa", price: 130 },
+          { name: "Boba Mango", price: 130 },
+          { name: "Boba Manzana", price: 130 },
+        ],
+      },,
       {
         name: "Latte de Coco Frío",
         desc: "Estilo asiático",
