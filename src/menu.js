@@ -31,19 +31,19 @@ export const categories = [
         options: [
           {
             name: "Cerdo al Vapor",
-            price: 169,
+            price: 160,
           },
           {
             name: "Cerdo Frito",
-            price: 169,
+            price: 160,
           },
           {
             name: "Pollo al Vapor",
-            price: 169,
+            price: 160,
           },
           {
             name: "Pollo Frito",
-            price: 169,
+            price: 160,
           },
         ],
       },
