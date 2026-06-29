@@ -106,7 +106,7 @@ export default function App() {
             active:scale-95 active:bg-red-500 transition
           "
         >
-          Elegir opción
+          Personalizar
         </button>
       );
     }
