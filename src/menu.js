@@ -177,9 +177,12 @@ export const categories = [
       },
       {
         name: "California Roll",
-        desc: "aguacate, pepino y surimi",
-        price: 210,
+        desc: "aguacate, pepino y surimi o camaron",
         image: "/images/california.webp",
+        options: [
+          { name: "de camaron", price: 210 },
+          { name: "de cangrejo", price: 210 },
+        ],
       },
       {
         name: "Nemo Roll",
