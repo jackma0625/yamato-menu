@@ -174,11 +174,9 @@ export default function App() {
               >
                 ✕
               </button>
-              <h2 className="text-3xl font-black text-red-500">
-  NOVEDADES
-</h2>
+              
 
-<div className="mt-3 border-b pb-3">
+
 <h2 className="text-3xl font-black text-red-500">NUEVO</h2>
 
 <p className="font-bold mt-2">🍣 Combo Yamato</p>
@@ -190,7 +188,7 @@ export default function App() {
 <p className="text-gray-600 mt-2">
    sushi + entradas a un mejor precio.
 </p>
-</div>
+
               <button
                 onClick={closePromo}
                 className="
