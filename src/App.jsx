@@ -290,6 +290,13 @@ export default function App() {
   </p>
 )}
 
+{cat.category === "Combos" && (
+  <p className="text-gray-600 mb-4">
+    Combos en Copán • Sushi, entradas a un mejor precio.
+  </p>
+)}
+
+
 {cat.category === "Rollos" && (
   <p className="text-gray-600 mb-4">
     Sushi en Copán • frescos preparados al momento.
