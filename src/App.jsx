@@ -174,14 +174,29 @@ export default function App() {
               >
                 ✕
               </button>
-              <h2 className="text-3xl font-black text-red-500">NUEVO</h2>
-              <p className="font-bold mt-2">Camarón Cantonés</p>
-              <p className="text-500 font-black text-xl mt-2">
-                18u L.349 | 9u L.180
-              </p>
-              <p className="text-gray-600 mt-2">
-                Camarones al vapor con jengibre y cebollina
-              </p>
+              <h2 className="text-3xl font-black text-red-500">
+  NOVEDADES
+</h2>
+
+<div className="mt-3 border-b pb-3">
+  <p className="font-bold">🦐 Camarón Cantonés</p>
+  <p className="text-xl font-black">
+    18u L.349 | 9u L.180
+  </p>
+  <p className="text-gray-600">
+    Camarones al vapor con jengibre y cebollina
+  </p>
+</div>
+
+<div className="mt-3">
+  <p className="font-bold">🍣 Combo Yamato</p>
+  <p className="text-xl font-black">
+    L.399
+  </p>
+  <p className="text-gray-600">
+    Sushi, entradas a precio especial
+  </p>
+</div>
               <button
                 onClick={closePromo}
                 className="
