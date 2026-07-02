@@ -88,6 +88,25 @@ export const categories = [
       },
     ],
   },
+
+  {
+    category: "Combos",
+    items: [
+      {
+        name: "Combo Yamato",
+        desc: "Yamato Roll(5 piezas), Nemo Roll(4 piezas), Brocheta de Camaron(2 piezas), Salmon Wonton Bites(2 piezas)",
+        image: "/images/combo-yamato.webp",
+        price: 399,
+      },
+      {
+        name: "Combo Clásico",
+        desc: "Ebi Roll(5 piezas), California Roll (4 piezas), Gyoza Frita (2 piezas), Spring Roll (1 pieza), Miso Soup (1 tazón)",
+        image: "/images/combo-clasico.webp",
+        price: 389,
+      },
+    ],
+  },
+  
   {
     category: "Rollos",
     items: [
