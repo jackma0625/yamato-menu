@@ -8,7 +8,7 @@ const PROMOS = [
   { text: "⚽ Vive el Mundial con Sushi Yamato", color: "bg-green-400" },
 ];
 
-const PROMO_IMAGE = "/images/camaron-cantones.webp";
+const PROMO_IMAGE = "/images/combo-yamato.webp";
 const WHATSAPP_NUMBER = "50494340468";
 
 export default function App() {
@@ -179,23 +179,17 @@ export default function App() {
 </h2>
 
 <div className="mt-3 border-b pb-3">
-  <p className="font-bold">🦐 Camarón Cantonés</p>
-  <p className="text-xl font-black">
-    18u L.349 | 9u L.180
-  </p>
-  <p className="text-gray-600">
-    Camarones al vapor con jengibre y cebollina
-  </p>
-</div>
+<h2 className="text-3xl font-black text-red-500">NUEVO</h2>
 
-<div className="mt-3">
-  <p className="font-bold">🍣 Combo Yamato</p>
-  <p className="text-xl font-black">
-    L.399
-  </p>
-  <p className="text-gray-600">
-    Sushi, entradas a precio especial
-  </p>
+<p className="font-bold mt-2">🍣 Combo Yamato</p>
+
+<p className="text-500 font-black text-xl mt-2">
+  L.399
+</p>
+
+<p className="text-gray-600 mt-2">
+   sushi + entradas a un mejor precio.
+</p>
 </div>
               <button
                 onClick={closePromo}
