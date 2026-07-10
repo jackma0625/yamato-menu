@@ -464,6 +464,25 @@ export default function App() {
           )}
         </div>
       )}
+
+<footer className="bg-black text-gray-400 text-center py-6 mt-10">
+  <p className="text-sm">
+    © 2026 Sushi Yamato
+  </p>
+
+  <p className="text-xs mt-2">
+    Menú digital desarrollado por{" "}
+    <a
+      href="https://hnmenu.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-white font-semibold"
+    >
+      HNMenu
+    </a>
+  </p>
+</footer>
+
     </div>
   );
 }
