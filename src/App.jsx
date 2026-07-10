@@ -344,20 +344,7 @@ export default function App() {
 ))}
 </div>
 
-{/* ===== SEO Content ===== */}
-<div className="px-4 pb-10">
-  <div className="bg-white rounded-3xl p-6 shadow-lg">
-    <h2 className="text-2xl font-black mb-3">
-      Sushi, Ramen y Bubble Tea en Copán
-    </h2>
 
-    <p className="text-gray-600 leading-7">
-      Sushi Yamato es un restaurante japonés ubicado en La Entrada, Copán,
-      Honduras. Ofrecemos sushi fresco, ramen japonés, bowls asiáticos,
-      entradas japonesas y bubble tea con diferentes sabores de boba.
-    </p>
-  </div>
-</div>
 
       {/* ===== Floating Buttons ===== */}
       {/* Cart Toggle */}
