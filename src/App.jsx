@@ -5,7 +5,7 @@ import { categories } from "./menu";
 
 // ===== 促销数据 =====
 const PROMOS = [
-  { text: "🔥 Miércoles Bubble Tea -15%", color: "bg-yellow-400" },
+  
   { text: "🎉 Jueves 3x2 en Rollos", color: "bg-red-400" },
   { text: "⚽ Vive el Mundial con Sushi Yamato", color: "bg-green-400" },
 ];
