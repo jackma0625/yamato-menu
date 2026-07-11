@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Conocenos from "./pages/Conocenos";
 import { categories } from "./menu";
 
-// 促销数据移到组件外部
+// ===== 促销数据 =====
 const PROMOS = [
   { text: "🔥 Miércoles Bubble Tea -15%", color: "bg-yellow-400" },
   { text: "🎉 Jueves 3x2 en Rollos", color: "bg-red-400" },
@@ -11,8 +13,8 @@ const PROMOS = [
 const PROMO_IMAGE = "/images/combo-yamato.webp";
 const WHATSAPP_NUMBER = "50494340468";
 
-export default function App() {
-  // ============ State ============
+// ===== HomePage 组件 =====
+function HomePage() {
   const [cart, setCart] = useState([]);
   const [toast, setToast] = useState("");
   const [showCart, setShowCart] = useState(false);
@@ -21,26 +23,21 @@ export default function App() {
   const [promoIndex, setPromoIndex] = useState(0);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // ============ Derived State ============
   const total = cart.reduce((sum, item) => sum + Number(item.price) * item.qty, 0);
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
-  // ============ Effects ============
-  // 滚动时关闭购物车
   useEffect(() => {
     const handleScroll = () => setShowCart(false);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 促销弹窗（每天只显示一次）
   useEffect(() => {
     const lastClosed = localStorage.getItem("promoClosed");
     const today = new Date().toDateString();
     if (lastClosed !== today) setShowPromo(true);
   }, []);
 
-  // 促销轮播
   useEffect(() => {
     const interval = setInterval(() => {
       setPromoIndex((prev) => (prev === PROMOS.length - 1 ? 0 : prev + 1));
@@ -48,7 +45,6 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  // ============ Handlers ============
   const addToCart = (item) => {
     setCart((prev) => {
       const existing = prev.find((i) => i.name === item.name);
@@ -59,7 +55,6 @@ export default function App() {
       }
       return [...prev, { ...item, qty: 1 }];
     });
-
     setToast(`${item.name} agregado`);
     setTimeout(() => setToast(""), 2000);
   };
@@ -87,39 +82,29 @@ export default function App() {
     const message = cart
       .map((item) => `${item.qty}x ${item.name} - L.${Number(item.price) * item.qty}`)
       .join("\n");
-
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
       `Hola, quiero ordenar:\n\n${message}\n\nTotal: L.${total}`
     )}`;
-
     window.open(url);
   };
 
-  // ============ Render Helpers ============
   const renderItemOptions = (item) => {
     if (item.options) {
       return (
         <button
           onClick={() => setSelectedItem(item)}
-          className="
-            bg-black text-white px-4 py-2 rounded-xl
-            active:scale-95 active:bg-red-500 transition
-          "
+          className="bg-black text-white px-4 py-2 rounded-xl active:scale-95 active:bg-red-500 transition"
         >
           Personalizar
         </button>
       );
     }
-
     return (
       <>
         <p className="text-red-500 font-black text-xl mb-2">L.{item.price}</p>
         <button
           onClick={() => addToCart(item)}
-          className="
-            bg-black text-white px-4 py-2 rounded-xl
-            active:scale-95 active:bg-red-500 transition
-          "
+          className="bg-black text-white px-4 py-2 rounded-xl active:scale-95 active:bg-red-500 transition"
         >
           Agregar
         </button>
@@ -128,10 +113,7 @@ export default function App() {
   };
 
   const renderProductCard = (item, index) => (
-    <div
-      key={index}
-      className="bg-white rounded-3xl overflow-hidden shadow-lg"
-    >
+    <div key={index} className="bg-white rounded-3xl overflow-hidden shadow-lg">
       <img
         src={item.image}
         alt={item.name}
@@ -146,17 +128,13 @@ export default function App() {
     </div>
   );
 
-  // ============ Main Render ============
   return (
     <div className="bg-[#f5f5f5] min-h-screen">
-      {/* ===== Promo Modal ===== */}
+      {/* Promo Modal */}
       {showPromo && (
         <div
           onClick={closePromo}
-          className="
-            fixed inset-0 bg-black/60 z-[999]
-            flex items-center justify-center p-4
-          "
+          className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center p-4"
         >
           <div
             onClick={(e) => e.stopPropagation()}
@@ -168,33 +146,16 @@ export default function App() {
               alt="Promoción"
             />
             <div className="p-5">
-              <button
-                onClick={closePromo}
-                className="float-right text-xl font-bold"
-              >
+              <button onClick={closePromo} className="float-right text-xl font-bold">
                 ✕
               </button>
-              
-
-
-<h2 className="text-3xl font-black text-red-500">NUEVO</h2>
-
-<p className="font-bold mt-2">🍣 Combo Yamato</p>
-
-<p className="text-500 font-black text-xl mt-2">
-  L.399
-</p>
-
-<p className="text-gray-600 mt-2">
-   sushi + entradas a un mejor precio.
-</p>
-
+              <h2 className="text-3xl font-black text-red-500">NUEVO</h2>
+              <p className="font-bold mt-2">🍣 Combo Yamato</p>
+              <p className="text-500 font-black text-xl mt-2">L.399</p>
+              <p className="text-gray-600 mt-2">sushi + entradas a un mejor precio.</p>
               <button
                 onClick={closePromo}
-                className="
-                  mt-4 w-full bg-black text-white py-3 rounded-xl
-                  font-bold active:scale-95 transition
-                "
+                className="mt-4 w-full bg-black text-white py-3 rounded-xl font-bold active:scale-95 transition"
               >
                 Ver Menú
               </button>
@@ -203,19 +164,14 @@ export default function App() {
         </div>
       )}
 
-      {/* ===== Toast ===== */}
+      {/* Toast */}
       {toast && (
-        <div
-          className="
-            fixed top-5 right-5 bg-black text-white px-5 py-3
-            rounded-2xl shadow-2xl z-[100] animate-bounce
-          "
-        >
+        <div className="fixed top-5 right-5 bg-black text-white px-5 py-3 rounded-2xl shadow-2xl z-[100] animate-bounce">
           ✅ {toast}
         </div>
       )}
 
-      {/* ===== Header ===== */}
+      {/* Header */}
       <div className="bg-black text-white p-6 shadow-xl">
         <h1 className="text-4xl font-black">SUSHI YAMATO</h1>
         <p className="text-sm text-yellow-400 mt-2 font-semibold">
@@ -225,15 +181,12 @@ export default function App() {
           Restaurante japonés en Copán, Honduras
         </p>
 
-        <div className="flex gap-3 mt-3">
+        <div className="flex gap-3 mt-3 flex-wrap">
           <a
             href="https://instagram.com/sushiyamato.hn"
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500
-              text-white px-3 py-1.5 rounded-full text-xs font-bold
-            "
+            className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-white px-3 py-1.5 rounded-full text-xs font-bold"
           >
             📸 Instagram
           </a>
@@ -241,37 +194,35 @@ export default function App() {
             href="https://maps.app.goo.gl/LXmX42vSrZLLTk2v8"
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold
-            "
+            className="bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold"
           >
             📍 Maps
           </a>
+          <Link
+            to="/conocenos"
+            className="bg-red-500 text-white px-3 py-1.5 rounded-full text-xs font-bold"
+          >
+            🏠 Conócenos
+          </Link>
         </div>
 
-        {/* Promo Banner */}
         <div
-          className={`
-            mt-5 ${PROMOS[promoIndex].color} text-black
-            rounded-2xl px-4 py-3 font-bold text-sm
-            shadow-lg transition-all duration-500
-          `}
+          className={`mt-5 ${PROMOS[promoIndex].color} text-black rounded-2xl px-4 py-3 font-bold text-sm shadow-lg transition-all duration-500`}
         >
           {PROMOS[promoIndex].text}
         </div>
       </div>
 
-      {/* ===== Category Tabs ===== */}
+      {/* Category Tabs */}
       <div className="sticky top-0 z-50 bg-black py-3 shadow-xl">
         <div className="flex gap-3 overflow-x-auto px-2">
           {categories.map((cat) => (
             <button
               key={cat.category}
               onClick={() => setSelected(cat.category)}
-              className={`
-                px-6 py-3 rounded-full font-bold whitespace-nowrap transition
-                ${selected === cat.category ? "bg-red-500 text-white" : "bg-white text-black"}
-              `}
+              className={`px-6 py-3 rounded-full font-bold whitespace-nowrap transition ${
+                selected === cat.category ? "bg-red-500 text-white" : "bg-white text-black"
+              }`}
             >
               {cat.category}
             </button>
@@ -279,82 +230,24 @@ export default function App() {
         </div>
       </div>
 
-     {/* ===== Products ===== */}
-<div className="p-4">
-  {categories
-    .filter((cat) => cat.category === selected)
-    .map((cat) => (
+      {/* Products */}
+      <div className="p-4">
+        {categories
+          .filter((cat) => cat.category === selected)
+          .map((cat) => (
+            <div key={cat.category} className="mb-10">
+              <h2 className="text-3xl font-black mb-5">{cat.category}</h2>
+              <div className="grid grid-cols-2 gap-4">
+                {cat.items.map((item, index) => renderProductCard(item, index))}
+              </div>
+            </div>
+          ))}
+      </div>
 
-      <div key={cat.category} className="mb-10">
-
-        <h2 className="text-3xl font-black mb-5">
-          {cat.category}
-        </h2>
-
-        {cat.category === "Entradas" && (
-  <p className="text-gray-600 mb-4">
-    Entradas japonesas en Copán • Edamame, Gyoza y Miso Soup.
-  </p>
-)}
-
-{cat.category === "Combos" && (
-  <p className="text-gray-600 mb-4">
-    Combos en Copán • Sushi, entradas a un mejor precio.
-  </p>
-)}
-
-
-{cat.category === "Rollos" && (
-  <p className="text-gray-600 mb-4">
-    Sushi en Copán • frescos preparados al momento.
-  </p>
-)}
-
-{cat.category === "Ramen" && (
-  <p className="text-gray-600 mb-4">
-    Ramen japonés en Copán • Caldo casero y fideos estilo japonés.
-  </p>
-)}
-
-{cat.category === "Bowls" && (
-  <p className="text-gray-600 mb-4">
-    Bowls asiático en Copán • Teriyaki Chicken Bowl y Sweet Chili Chicken Bowl.
-  </p>
-)}
-
-{cat.category === "Especialidades" && (
-  <p className="text-gray-600 mb-4">
-    Especialidades asiático en Copán • Platos exclusivos de Sushi Yamato.
-  </p>
-)}
-
-{cat.category === "Bubble Tea" && (
-  <p className="text-gray-600 mb-4">
-    Bubble Tea en Copán • Té con boba estilo asiático.
-  </p>
-)}
-
-<div className="grid grid-cols-2 gap-4">
-  {cat.items.map((item, index) =>
-    renderProductCard(item, index)
-  )}
-</div>
-
-</div>
-))}
-</div>
-
-
-
-      {/* ===== Floating Buttons ===== */}
-      {/* Cart Toggle */}
+      {/* Floating Buttons */}
       <button
         onClick={() => setShowCart(!showCart)}
-        className="
-          fixed bottom-16 right-3 z-40
-          bg-black text-white px-3 py-2 rounded-full
-          shadow-lg font-semibold text-sm
-        "
+        className="fixed bottom-16 right-3 z-40 bg-black text-white px-3 py-2 rounded-full shadow-lg font-semibold text-sm"
       >
         Mi Orden
         <span className="bg-red-500 text-white px-2 py-1 rounded-full ml-2 animate-pulse">
@@ -362,71 +255,50 @@ export default function App() {
         </span>
       </button>
 
-      {/* WhatsApp Order */}
       {cart.length > 0 && (
         <button
           onClick={handleWhatsAppOrder}
-          className="
-            fixed bottom-3 right-3 z-10
-            bg-green-500 text-white px-3 py-2 rounded-full
-            shadow-lg font-semibold text-sm
-          "
+          className="fixed bottom-3 right-3 z-10 bg-green-500 text-white px-3 py-2 rounded-full shadow-lg font-semibold text-sm"
         >
           WhatsApp Order
         </button>
       )}
 
-{selectedItem && (
-  <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center p-4">
-    <div className="bg-white rounded-3xl p-5 w-full max-w-sm">
-      <h2 className="text-2xl font-black mb-4">
-        {selectedItem.name}
-      </h2>
+      {selectedItem && (
+        <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl p-5 w-full max-w-sm">
+            <h2 className="text-2xl font-black mb-4">{selectedItem.name}</h2>
+            <div className="flex flex-col gap-3">
+              {selectedItem.options.map((option, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    addToCart({
+                      ...selectedItem,
+                      name: `${selectedItem.name} - ${option.name}`,
+                      price: option.price,
+                    });
+                    setSelectedItem(null);
+                  }}
+                  className="bg-black text-white py-3 rounded-xl active:scale-95 transition"
+                >
+                  {option.name} - L.{option.price}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setSelectedItem(null)}
+              className="mt-4 w-full border py-3 rounded-xl"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
 
-      <div className="flex flex-col gap-3">
-        {selectedItem.options.map((option, idx) => (
-          <button
-            key={idx}
-            onClick={() => {
-              addToCart({
-                ...selectedItem,
-                name: `${selectedItem.name} - ${option.name}`,
-                price: option.price,
-              });
-
-              setSelectedItem(null);
-            }}
-            className="
-              bg-black text-white py-3 rounded-xl
-              active:scale-95 transition
-            "
-          >
-            {option.name} - L.{option.price}
-          </button>
-        ))}
-      </div>
-
-      <button
-        onClick={() => setSelectedItem(null)}
-        className="mt-4 w-full border py-3 rounded-xl"
-      >
-        Cancelar
-      </button>
-    </div>
-  </div>
-)}
-
-      {/* ===== Cart Drawer ===== */}
       {showCart && (
-        <div
-          className="
-            fixed bottom-24 right-5 z-50
-            bg-white p-4 rounded-2xl shadow-2xl
-            w-56 text-black max-h-48 overflow-y-auto
-          "
-        >
+        <div className="fixed bottom-24 right-5 z-50 bg-white p-4 rounded-2xl shadow-2xl w-56 text-black max-h-48 overflow-y-auto">
           <h2 className="font-black text-lg mb-3">Mi Orden</h2>
-
           {cart.length === 0 ? (
             <p className="text-gray-400 text-sm">Carrito vacío</p>
           ) : (
@@ -452,24 +324,30 @@ export default function App() {
         </div>
       )}
 
-<footer className="bg-black text-gray-400 text-center py-6 mt-10">
-  <p className="text-sm">
-    © 2026 Sushi Yamato
-  </p>
-
-  <p className="text-xs mt-2">
-    Menú digital desarrollado por{" "}
-    <a
-      href="https://hnmenu.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-white font-semibold"
-    >
-      HNMenu
-    </a>
-  </p>
-</footer>
-
+      <footer className="bg-black text-gray-400 text-center py-6 mt-10">
+        <p className="text-sm">© 2026 Sushi Yamato</p>
+        <p className="text-xs mt-2">
+          Menú digital desarrollado por{" "}
+          <a
+            href="https://hnmenu.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white font-semibold"
+          >
+            HNMenu
+          </a>
+        </p>
+      </footer>
     </div>
+  );
+}
+
+// ===== App 组件（路由配置） =====
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/conocenos" element={<Conocenos />} />
+    </Routes>
   );
 }
