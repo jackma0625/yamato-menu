@@ -80,12 +80,7 @@ export const categories = [
         price: 189,
         image: "/images/ika-sansai.webp",
       },
-      {
-        name: "Kids Chickens",
-        desc: "Crujiente de pollo acompañada de papas fritas",
-        price: 189,
-        image: "/images/kids-chicken.webp",
-      },
+      
     ],
   },
 
@@ -304,6 +299,12 @@ export const categories = [
     category: "Especialidades",
     items: [
       {
+        name: "Kids Chickens",
+        desc: "Crujiente de pollo acompañada de papas fritas",
+        price: 189,
+        image: "/images/kids-chicken.webp",
+      },
+      {
         name: "Camarón Cantonés",
         desc: "camarones al vapor con jengible y cebollina",
         image: "/images/camaron-cantones.webp",
@@ -312,6 +313,7 @@ export const categories = [
           { name: "9u", price: 180 },
         ],
       },
+      
     ],
   },
 
