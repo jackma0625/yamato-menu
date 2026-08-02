@@ -107,17 +107,16 @@ function HomePage() {
   };
 
   // ===== 选择组合套餐选项 =====
-  const selectComboOption = (stepIndex, optionName, price) => {
-    const newSelections = { ...comboSelections, [stepIndex]: { name: optionName, price } };
+  const selectComboOption = (stepIndex, optionName) => {
+    const newSelections = { ...comboSelections, [stepIndex]: { name: optionName } };
     setComboSelections(newSelections);
-
+  
     if (stepIndex < comboItem.steps.length - 1) {
       setComboStep(stepIndex + 1);
     } else {
-      // 所有步骤完成，添加到购物车
       const comboName = comboItem.name;
       const details = Object.values(newSelections).map(s => s.name).join(' + ');
-      const totalPrice = Object.values(newSelections).reduce((sum, s) => sum + s.price, 0);
+      const totalPrice = Number(comboItem.price) || 0;  // ← 用商品固定价格，不累加
       
       addToCart({
         name: `${comboName} (${details})`,
