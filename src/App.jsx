@@ -184,6 +184,10 @@ function HomePage() {
       <div className="p-4">
         <h2 className="font-black text-lg leading-tight">{item.name}</h2>
         <p className="text-sm text-gray-500 mt-2 min-h-[40px]">{item.desc}</p>
+         {/* ===== 价格显示：所有有 price 的都显示 ===== */}
+      {item.price && (
+        <p className="text-red-500 font-black text-xl mt-1">L.{item.price}</p>
+      )}
         <div className="mt-4">{renderItemOptions(item)}</div>
       </div>
     </div>
