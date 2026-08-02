@@ -5,9 +5,8 @@ import { categories } from "./menu";
 
 // ===== 促销数据 =====
 const PROMOS = [
-  
   { text: "🎉 Jueves 3x2 en Rollos", color: "bg-red-400" },
-  { text: "⚽ Vive el Mundial con Sushi Yamato", color: "bg-green-400" },
+  
 ];
 
 const PROMO_IMAGE = "/images/combo-yamato.webp";
@@ -22,6 +21,11 @@ function HomePage() {
   const [selected, setSelected] = useState("Entradas");
   const [promoIndex, setPromoIndex] = useState(0);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  // ===== 组合套餐状态 =====
+  const [comboItem, setComboItem] = useState(null);
+  const [comboStep, setComboStep] = useState(0);
+  const [comboSelections, setComboSelections] = useState({});
 
   const total = cart.reduce((sum, item) => sum + Number(item.price) * item.qty, 0);
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
@@ -88,23 +92,80 @@ function HomePage() {
     window.open(url);
   };
 
+  // ===== 打开组合套餐选择器 =====
+  const openComboSelector = (item) => {
+    setComboItem(item);
+    setComboStep(0);
+    setComboSelections({});
+  };
+
+  // ===== 关闭组合套餐选择器 =====
+  const closeComboSelector = () => {
+    setComboItem(null);
+    setComboStep(0);
+    setComboSelections({});
+  };
+
+  // ===== 选择组合套餐选项 =====
+  const selectComboOption = (stepIndex, optionName, price) => {
+    const newSelections = { ...comboSelections, [stepIndex]: { name: optionName, price } };
+    setComboSelections(newSelections);
+
+    if (stepIndex < comboItem.steps.length - 1) {
+      setComboStep(stepIndex + 1);
+    } else {
+      // 所有步骤完成，添加到购物车
+      const comboName = comboItem.name;
+      const details = Object.values(newSelections).map(s => s.name).join(' + ');
+      const totalPrice = Object.values(newSelections).reduce((sum, s) => sum + s.price, 0);
+      
+      addToCart({
+        name: `${comboName} (${details})`,
+        price: totalPrice,
+      });
+      
+      closeComboSelector();
+    }
+  };
+
+  // ===== 判断是否是组合套餐 =====
+  const isComboItem = (item) => {
+    return item.type === 'combo' && item.steps && item.steps.length > 0;
+  };
+
+  // ===== 渲染产品按钮 =====
   const renderItemOptions = (item) => {
+    // 组合套餐
+    if (isComboItem(item)) {
+      return (
+        <button
+          onClick={() => openComboSelector(item)}
+          className="bg-black text-white px-4 py-2 rounded-xl active:scale-95 active:bg-red-500 transition w-full text-sm"
+        >
+          Personalizar Combo
+        </button>
+      );
+    }
+
+    // 普通带选项的产品
     if (item.options) {
       return (
         <button
           onClick={() => setSelectedItem(item)}
-          className="bg-black text-white px-4 py-2 rounded-xl active:scale-95 active:bg-red-500 transition"
+          className="bg-black text-white px-4 py-2 rounded-xl active:scale-95 active:bg-red-500 transition w-full text-sm"
         >
           Personalizar
         </button>
       );
     }
+
+    // 普通产品
     return (
       <>
         <p className="text-red-500 font-black text-xl mb-2">L.{item.price}</p>
         <button
           onClick={() => addToCart(item)}
-          className="bg-black text-white px-4 py-2 rounded-xl active:scale-95 active:bg-red-500 transition"
+          className="bg-black text-white px-4 py-2 rounded-xl active:scale-95 active:bg-red-500 transition w-full text-sm"
         >
           Agregar
         </button>
@@ -112,6 +173,7 @@ function HomePage() {
     );
   };
 
+  // ===== 渲染产品卡片 =====
   const renderProductCard = (item, index) => (
     <div key={index} className="bg-white rounded-3xl overflow-hidden shadow-lg">
       <img
@@ -264,11 +326,13 @@ function HomePage() {
         </button>
       )}
 
+      {/* ===== 普通产品个性化弹窗 ===== */}
       {selectedItem && (
         <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-5 w-full max-w-sm">
-            <h2 className="text-2xl font-black mb-4">{selectedItem.name}</h2>
-            <div className="flex flex-col gap-3">
+          <div className="bg-white rounded-3xl p-5 w-full max-w-sm max-h-[80vh] overflow-y-auto">
+            <h2 className="text-2xl font-black mb-1">{selectedItem.name}</h2>
+            <p className="text-gray-500 text-sm mb-4">{selectedItem.desc}</p>
+            <div className="flex flex-col gap-2">
               {selectedItem.options.map((option, idx) => (
                 <button
                   key={idx}
@@ -280,15 +344,16 @@ function HomePage() {
                     });
                     setSelectedItem(null);
                   }}
-                  className="bg-black text-white py-3 rounded-xl active:scale-95 transition"
+                  className="bg-gray-100 py-3 px-4 rounded-xl text-left hover:bg-gray-200 transition"
                 >
-                  {option.name} - L.{option.price}
+                  <span className="font-medium">{option.name}</span>
+                  <span className="text-gray-500 text-sm ml-2">+ L.{option.price}</span>
                 </button>
               ))}
             </div>
             <button
               onClick={() => setSelectedItem(null)}
-              className="mt-4 w-full border py-3 rounded-xl"
+              className="mt-4 w-full border py-3 rounded-xl text-center"
             >
               Cancelar
             </button>
@@ -296,6 +361,58 @@ function HomePage() {
         </div>
       )}
 
+      {/* ===== 组合套餐多步骤弹窗 ===== */}
+      {comboItem && (
+        <div className="fixed inset-0 bg-black/60 z-[999] flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl p-5 w-full max-w-sm max-h-[80vh] overflow-y-auto">
+            <h2 className="text-2xl font-black mb-1">{comboItem.name}</h2>
+            <p className="text-gray-500 text-sm mb-4">{comboItem.desc}</p>
+
+            {/* 步骤指示器 */}
+            <div className="flex gap-2 mb-4">
+              {comboItem.steps.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`text-xs px-3 py-1 rounded-full ${
+                    idx <= comboStep ? 'bg-black text-white' : 'bg-gray-200 text-gray-400'
+                  }`}
+                >
+                  {idx + 1}
+                </span>
+              ))}
+            </div>
+
+            {/* 当前步骤 */}
+            <p className="font-bold mb-3 text-lg">
+              {comboItem.steps[comboStep]?.label}
+            </p>
+
+            <div className="flex flex-col gap-2">
+              {comboItem.steps[comboStep]?.options.map((opt, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => selectComboOption(comboStep, opt.name, opt.price)}
+                  className="bg-gray-100 py-3 px-4 rounded-xl text-left hover:bg-gray-200 transition"
+                >
+                  <span className="font-medium">{opt.name}</span>
+                  {opt.price > 0 && (
+                    <span className="text-gray-500 text-sm ml-2">+ L.{opt.price}</span>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={closeComboSelector}
+              className="mt-4 w-full border py-3 rounded-xl text-center"
+            >
+              Cancelar
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Cart Drawer */}
       {showCart && (
         <div className="fixed bottom-24 right-5 z-50 bg-white p-4 rounded-2xl shadow-2xl w-56 text-black max-h-48 overflow-y-auto">
           <h2 className="font-black text-lg mb-3">Mi Orden</h2>
@@ -306,7 +423,7 @@ function HomePage() {
               {cart.map((item) => (
                 <div key={item.name} className="flex justify-between items-center mb-2">
                   <div>
-                    <p className="font-bold text-sm">{item.name}</p>
+                    <p className="font-bold text-sm leading-tight">{item.name}</p>
                     <p className="text-xs">{item.qty} x L.{item.price}</p>
                   </div>
                   <button
