@@ -103,7 +103,7 @@ export const categories = [
       {
         name: "Combo Zambo Lover",
         desc: "Gyoza + Zambo Roll",
-        image: "/images/combo-zambo-lover.webp",
+        image: "/images/combo-zambo.webp",
         price: 389,
         type: "combo",
         steps: [
@@ -121,7 +121,7 @@ export const categories = [
       {
         name: "Combo para Compartir",
         desc: "Edamame + 2 Rollos (hasta L.269 c/u)",
-        image: "/images/combo-compartir.webp",
+        image: "/images/combo-para-compartir.webp",
         price: 550,
         type: "combo",
         steps: [
@@ -341,14 +341,22 @@ export const categories = [
       {
         name: "Ramen",
         desc: "Ramen japonés en Copán con pollo o camarón",
-        price: 289,
+        
         image: "/images/ramen.webp",
+        options: [
+          { name: "de camaron", price: 289 },
+          { name: "de pollo", price: 289 },
+        ],
       },
       {
         name: "Udon",
         desc: "Udon japonés estilo ramen en Copán",
-        price: 289,
+        
         image: "/images/udon.webp",
+        options: [
+          { name: "de camaron", price: 289 },
+          { name: "de pollo", price: 289 },
+        ],
       },
     ],
   },
