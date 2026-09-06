@@ -225,7 +225,7 @@ export const categories = [
       {
         name: "Dragon Roll",
         desc: "Queso crema, camaron tempura, aguacate, anguila y tobikos",
-        price: 349,
+        price: 369,
         image: "/images/dragon.webp",
       },
       {
